@@ -173,6 +173,50 @@ Frontend will run on `http://localhost:3000`
 
 ---
 
+## 🚂 Deployment to Railway
+
+### Backend Deployment
+
+This project includes a `railway.toml` file that tells Railway where the backend folder is located.
+
+#### Option 1: Using railway.toml (Recommended)
+The `railway.toml` file is already configured:
+```toml
+[build]
+builder = "NIXPACKS"
+buildCommand = "cd backend && npm install"
+
+[deploy]
+startCommand = "cd backend && npm start"
+```
+
+#### Option 2: Railway Dashboard Settings
+Alternatively, you can configure in Railway dashboard:
+1. Go to your Railway project
+2. Click on **Settings**
+3. Set **Root Directory** to `backend`
+4. Set **Start Command** to `npm start`
+
+#### Environment Variables for Railway
+Add these in Railway dashboard:
+```
+MONGODB_URI=your_mongodb_atlas_connection_string
+JWT_SECRET=your_production_jwt_secret
+JWT_EXPIRE=7d
+NODE_ENV=production
+PORT=5000
+```
+
+### Frontend Deployment (Vercel/Netlify)
+Deploy frontend separately to Vercel or Netlify:
+1. Connect your GitHub repository
+2. Set **Root Directory** to `frontend`
+3. Set **Build Command** to `npm run build`
+4. Set **Output Directory** to `build`
+5. Add environment variable: `REACT_APP_API_URL=your_railway_backend_url`
+
+---
+
 ## ⚙️ Configuration
 
 ### Environment Variables

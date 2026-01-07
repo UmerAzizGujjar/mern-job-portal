@@ -68,7 +68,18 @@ code {
   font-size: 1rem;
   transition: all 0.3s;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.5;
+  font-weight: 500;
+  gap: 0.5rem;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .btn-primary {
@@ -76,8 +87,10 @@ code {
   color: white;
 }
 
-.btn-primary:hover {
+.btn-primary:hover:not(:disabled) {
   background-color: #2980b9;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
 }
 
 .btn-success {
@@ -85,8 +98,10 @@ code {
   color: white;
 }
 
-.btn-success:hover {
+.btn-success:hover:not(:disabled) {
   background-color: #229954;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
 }
 
 .btn-danger {
@@ -94,8 +109,10 @@ code {
   color: white;
 }
 
-.btn-danger:hover {
+.btn-danger:hover:not(:disabled) {
   background-color: #c0392b;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
 }
 
 .btn-secondary {
@@ -103,8 +120,21 @@ code {
   color: white;
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover:not(:disabled) {
   background-color: #7f8c8d;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(149, 165, 166, 0.3);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #3498db;
+  border: 2px solid #3498db;
+}
+
+.btn-outline:hover:not(:disabled) {
+  background-color: #3498db;
+  color: white;
 }
 
 /* Forms */
@@ -136,6 +166,7 @@ code {
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 1rem;
+  transition: all 0.3s;
 }
 
 .form-group input:focus,
@@ -143,6 +174,7 @@ code {
 .form-group select:focus {
   outline: none;
   border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
 
 .error {
@@ -168,6 +200,12 @@ code {
 }
 
 .card:hover {
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.card-actions .btn {
+  min-width: 100px;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
@@ -224,25 +262,31 @@ code {
 
 /* Job List */
 .job-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.job-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
+  display: flexflex-start;
+  gap: 1rem;
 }
 
 .job-info {
   flex: 1;
 }
 
+.job-info h3 {
+  margin-bottom: 0.5rem;
+}
+
 .job-meta {
   display: flex;
-  gap: 1rem;
-  margin-top: 0.5rem;
+  gap: 1.5rem;
+  margin-top: 0.75rem;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.job-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.op: 0.5rem;
   color: #7f8c8d;
   font-size: 0.9rem;
 }
@@ -333,14 +377,31 @@ code {
   color: #7f8c8d;
 }
 
-.empty-state h3 {
-  margin-bottom: 0.5rem;
-}
+.e  width: 100%;
+  }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .navbar-content {
+  .nav-links .btn {
+    width: 100%;
+  }
+  
+  .job-card {
     flex-direction: column;
+  }
+  
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .card-actions .btn {
+    width: 100%;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-row {
+    grid-template-columns: 1fr;
     gap: 1rem;
   }
   

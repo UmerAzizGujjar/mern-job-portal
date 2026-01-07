@@ -11,6 +11,8 @@
 
 A comprehensive, full-stack job portal application connecting employers with talented job seekers.
 
+**🌐 Live Demo:** [https://mern-job-portal-ua.vercel.app/](https://mern-job-portal-ua.vercel.app/)
+
 [Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [API Documentation](#-api-documentation)
 
 </div>

@@ -17,7 +17,7 @@ const PostJob = () => {
     experienceLevel: 'entry',
     salaryMin: '',
     salaryMax: '',
-    currency: 'USD',
+    currency: 'PKR',
     skills: '',
     requirements: '',
     responsibilities: '',
@@ -182,6 +182,7 @@ const PostJob = () => {
                   value={formData.currency}
                   onChange={handleChange}
                 >
+                  <option value="PKR">PKR</option>
                   <option value="USD">USD</option>
                   <option value="EUR">EUR</option>
                   <option value="GBP">GBP</option>

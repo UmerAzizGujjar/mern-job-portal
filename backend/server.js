@@ -21,6 +21,20 @@ mongoose.connect(process.env.MONGODB_URI)
     process.exit(1);
   });
 
+// Welcome route
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    message: 'Job Portal API is running successfully! 🚀',
+    version: '1.0.0',
+    endpoints: {
+      auth: '/api/auth',
+      jobs: '/api/jobs',
+      applications: '/api/applications'
+    }
+  });
+});
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/jobs', require('./routes/jobs'));
